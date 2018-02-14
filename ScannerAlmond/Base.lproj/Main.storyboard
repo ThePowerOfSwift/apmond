@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="im7-5y-nCq">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Scanner View Controller-->
+        <scene sceneID="cpQ-g7-zYg">
+            <objects>
+                <viewController id="im7-5y-nCq" customClass="ScannerViewController" customModule="ScannerAlmond" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="foH-Fo-Ipz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4bW-6K-S5o">
+                                <rect key="frame" x="0.0" y="58" width="375" height="500"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kg-Re-0d6">
+                                <rect key="frame" x="157" y="581" width="60" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <state key="normal">
+                                    <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="takePhotoActionButton:" destination="im7-5y-nCq" eventType="touchUpInside" id="dRo-Nz-gBi"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LkT-aO-nEW">
+                                <rect key="frame" x="315" y="584" width="40" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vn2-hZ-E3C">
+                                <rect key="frame" x="310" y="615" width="26" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.14324290689450725" green="0.77953457329520059" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="13"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSL-PP-EhE">
+                                <rect key="frame" x="310" y="615" width="26" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6yy-i8-Wlf">
+                                <rect key="frame" x="16" y="15" width="35" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="cancel"/>
+                                <connections>
+                                    <action selector="cancle:" destination="im7-5y-nCq" eventType="touchUpInside" id="Lzk-4U-A5U"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dgo-jH-ee6" userLabel="Flash Button">
+                                <rect key="frame" x="324" y="15" width="35" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="automaticFlashOff"/>
+                                <connections>
+                                    <action selector="changeFlash:" destination="im7-5y-nCq" eventType="touchUpInside" id="NsY-cZ-Wko"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gfy-5F-1fg" userLabel="Auto Capture Text ">
+                                <rect key="frame" x="146" y="15" width="130" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Auto-Capture On"/>
+                                <connections>
+                                    <action selector="changeAutoCapture:" destination="im7-5y-nCq" eventType="touchUpInside" id="qab-Hm-WMD"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="AutoCapture" translatesAutoresizingMaskIntoConstraints="NO" id="cL4-SU-QoY">
+                                <rect key="frame" x="129" y="22" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N1B-Ak-cRv">
+                                <rect key="frame" x="16" y="584" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="galleryButton"/>
+                                <connections>
+                                    <action selector="goToGallery:" destination="im7-5y-nCq" eventType="touchUpInside" id="xQ9-Jq-8hY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="9p6-zJ-btk" firstAttribute="trailing" secondItem="4bW-6K-S5o" secondAttribute="trailing" id="PSO-VM-29x"/>
+                            <constraint firstItem="4bW-6K-S5o" firstAttribute="leading" secondItem="9p6-zJ-btk" secondAttribute="leading" id="o6Y-kF-jTE"/>
+                            <constraint firstItem="4bW-6K-S5o" firstAttribute="top" secondItem="9p6-zJ-btk" secondAttribute="top" constant="38" id="vsx-Nj-fzf"/>
+                            <constraint firstItem="9p6-zJ-btk" firstAttribute="bottom" secondItem="4bW-6K-S5o" secondAttribute="bottom" constant="109" id="zdx-gA-yPK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9p6-zJ-btk"/>
+                    </view>
+                    <connections>
+                        <outlet property="autoCaptureTextOutlet" destination="Gfy-5F-1fg" id="Wcc-6b-HRP"/>
+                        <outlet property="autoCaptureZoneOutlet" destination="cL4-SU-QoY" id="eLd-3i-Yed"/>
+                        <outlet property="circleForCountPhotoImageView" destination="vn2-hZ-E3C" id="jcS-tP-UC5"/>
+                        <outlet property="countPhotoInSessionLabel" destination="mSL-PP-EhE" id="8hG-bf-CzV"/>
+                        <outlet property="flashButtonOutlet" destination="Dgo-jH-ee6" id="cBM-ov-mM5"/>
+                        <outlet property="imageView" destination="4bW-6K-S5o" id="97X-lU-WDU"/>
+                        <outlet property="photoCollection" destination="LkT-aO-nEW" id="CZT-fX-K5G"/>
+                        <outlet property="takePhotoButton" destination="5kg-Re-0d6" id="37Q-mX-peE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vCS-Eo-PdD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="925.60000000000002" y="115.59220389805098"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="AutoCapture" width="16" height="15"/>
+        <image name="automaticFlashOff" width="21" height="26"/>
+        <image name="cancel" width="16" height="16"/>
+        <image name="galleryButton" width="33" height="28"/>
+    </resources>
+</document>
