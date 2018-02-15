@@ -8,16 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		4B5FAD5820346D930094863A /* Flash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5FAD5720346D930094863A /* Flash.swift */; };
+		4BCD8AA120357FBD005BD161 /* DetectRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCD8AA020357FBD005BD161 /* DetectRectangle.swift */; };
 		4BF393712032CD63004CE76A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF393702032CD63004CE76A /* AppDelegate.swift */; };
 		4BF393762032CD63004CE76A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BF393742032CD63004CE76A /* Main.storyboard */; };
 		4BF393792032CD63004CE76A /* ScannerAlmond.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4BF393772032CD63004CE76A /* ScannerAlmond.xcdatamodeld */; };
 		4BF3937B2032CD63004CE76A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BF3937A2032CD63004CE76A /* Assets.xcassets */; };
 		4BF3937E2032CD63004CE76A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BF3937C2032CD63004CE76A /* LaunchScreen.storyboard */; };
 		4BF393872032CD9E004CE76A /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF393862032CD9E004CE76A /* ScannerViewController.swift */; };
+		93BC8600FC765B7AD012B2C9 /* Pods_ScannerAlmond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D9F3C2B1F5BD1D05FA9A25 /* Pods_ScannerAlmond.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		472217178532997308B86AB0 /* Pods-ScannerAlmond.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScannerAlmond.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScannerAlmond/Pods-ScannerAlmond.release.xcconfig"; sourceTree = "<group>"; };
 		4B5FAD5720346D930094863A /* Flash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flash.swift; sourceTree = "<group>"; };
+		4BCD8AA020357FBD005BD161 /* DetectRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectRectangle.swift; sourceTree = "<group>"; };
 		4BF3936D2032CD63004CE76A /* ScannerAlmond.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScannerAlmond.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BF393702032CD63004CE76A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BF393752032CD63004CE76A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -26,6 +30,8 @@
 		4BF3937D2032CD63004CE76A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BF3937F2032CD63004CE76A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BF393862032CD9E004CE76A /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		54D9F3C2B1F5BD1D05FA9A25 /* Pods_ScannerAlmond.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScannerAlmond.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		96B04BF8D8889491975CFFAA /* Pods-ScannerAlmond.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScannerAlmond.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScannerAlmond/Pods-ScannerAlmond.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,16 +39,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93BC8600FC765B7AD012B2C9 /* Pods_ScannerAlmond.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B92D6D961FADAE3F33993E7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				96B04BF8D8889491975CFFAA /* Pods-ScannerAlmond.debug.xcconfig */,
+				472217178532997308B86AB0 /* Pods-ScannerAlmond.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		4B5FAD5420346D670094863A /* Camera */ = {
 			isa = PBXGroup;
 			children = (
 				4B5FAD5720346D930094863A /* Flash.swift */,
+				4BCD8AA020357FBD005BD161 /* DetectRectangle.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -52,6 +69,8 @@
 			children = (
 				4BF3936F2032CD63004CE76A /* ScannerAlmond */,
 				4BF3936E2032CD63004CE76A /* Products */,
+				1B92D6D961FADAE3F33993E7 /* Pods */,
+				50BA6683C2BFE18B65ED7172 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,6 +105,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		50BA6683C2BFE18B65ED7172 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				54D9F3C2B1F5BD1D05FA9A25 /* Pods_ScannerAlmond.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -93,9 +120,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4BF393822032CD63004CE76A /* Build configuration list for PBXNativeTarget "ScannerAlmond" */;
 			buildPhases = (
+				D3929768A7BE00842FD0A27A /* [CP] Check Pods Manifest.lock */,
 				4BF393692032CD63004CE76A /* Sources */,
 				4BF3936A2032CD63004CE76A /* Frameworks */,
 				4BF3936B2032CD63004CE76A /* Resources */,
+				1F6AA8454001A258956C52E5 /* [CP] Embed Pods Frameworks */,
+				1492140A3D33053F63EB77E2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -153,11 +183,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1492140A3D33053F63EB77E2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ScannerAlmond/Pods-ScannerAlmond-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1F6AA8454001A258956C52E5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ScannerAlmond/Pods-ScannerAlmond-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/UICircularProgressRing/UICircularProgressRing.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICircularProgressRing.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ScannerAlmond/Pods-ScannerAlmond-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3929768A7BE00842FD0A27A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ScannerAlmond-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4BF393692032CD63004CE76A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BCD8AA120357FBD005BD161 /* DetectRectangle.swift in Sources */,
 				4B5FAD5820346D930094863A /* Flash.swift in Sources */,
 				4BF393792032CD63004CE76A /* ScannerAlmond.xcdatamodeld in Sources */,
 				4BF393872032CD9E004CE76A /* ScannerViewController.swift in Sources */,
@@ -296,6 +381,7 @@
 		};
 		4BF393832032CD63004CE76A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96B04BF8D8889491975CFFAA /* Pods-ScannerAlmond.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -312,6 +398,7 @@
 		};
 		4BF393842032CD63004CE76A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 472217178532997308B86AB0 /* Pods-ScannerAlmond.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

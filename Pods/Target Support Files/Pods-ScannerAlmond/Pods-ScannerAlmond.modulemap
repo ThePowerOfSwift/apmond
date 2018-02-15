@@ -1,0 +1,6 @@
+framework module Pods_ScannerAlmond {
+  umbrella header "Pods-ScannerAlmond-umbrella.h"
+
+  export *
+  module * { export * }
+}

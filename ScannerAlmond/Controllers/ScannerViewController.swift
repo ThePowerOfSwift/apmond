@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import Vision
+import UICircularProgressRing
 
 class ScannerViewController: UIViewController {
     
@@ -23,16 +24,22 @@ class ScannerViewController: UIViewController {
     @IBOutlet weak var autoCaptureTextOutlet: UIButton!
     
     
+    @IBOutlet weak var circular: UICircularProgressRingView!
+    
     
     var session = AVCaptureSession()
     var requests = [VNRequest]()
     var photoOutput: AVCapturePhotoOutput?
     
     var stateFlash = Flash()
+    var detectRectangle = DetectRectangle()
+    
     
     var countPhotoInSession: Int = 0
     
     var photoImage: UIImage?
+    var arrayOfPhotoInSession = [UIImage] ()
+    
     private var rectangleLayer: CAShapeLayer?
 
     
@@ -44,9 +51,10 @@ class ScannerViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+
     }
     override func viewDidAppear(_ animated: Bool) {
+
     }
     
     
@@ -54,6 +62,7 @@ class ScannerViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         imageView.layer.sublayers?[0].frame = imageView.bounds
     }
+    
     
     //MARK: - Buttons
 
@@ -64,7 +73,9 @@ class ScannerViewController: UIViewController {
         settings.flashMode = state
         photoOutput?.capturePhoto(with: settings, delegate: self)
         countPhotoInSession = countPhotoInSession + 1
-        countPhotoInSessionLabel.text = "\(countPhotoInSession)"
+        circular.setProgress(value: 100, animationDuration: 2.0) {
+            print("Done animating!")
+        }
     }
     
     
@@ -83,11 +94,13 @@ class ScannerViewController: UIViewController {
     
     @IBAction func changeAutoCapture(_ sender: Any) {
         if autoCaptureTextOutlet.title(for: .normal) == "Auto-Capture On"{
-        autoCaptureZoneOutlet.image = UIImage(named: "AutoCapture2.png")
-        autoCaptureTextOutlet.setTitle("Auto-Capture Off", for: UIControlState.normal)
+            autoCaptureZoneOutlet.image = UIImage(named: "AutoCapture2.png")
+            autoCaptureTextOutlet.setTitle("Auto-Capture Off", for: UIControlState.normal)
+            detectRectangle.setState(state: false)
         } else {
             autoCaptureZoneOutlet.image = UIImage(named: "AutoCapture.png")
             autoCaptureTextOutlet.setTitle("Auto-Capture On", for: UIControlState.normal)
+            detectRectangle.setState(state: true)
         }
     }
     
@@ -134,10 +147,8 @@ extension ScannerViewController: AVCaptureVideoDataOutputSampleBufferDelegate, A
     
     //MARK: - Detect object
     func startRectDetection() {
-        
         var rectangleBoxRequest = VNDetectRectanglesRequest(completionHandler:self.detectRectangles)
         self.requests = [rectangleBoxRequest]
-        
     }
     
     private func detectRectangles(request: VNRequest, error: Error?) {
@@ -151,26 +162,32 @@ extension ScannerViewController: AVCaptureVideoDataOutputSampleBufferDelegate, A
         // and then transform result to VNRectObserv
         let result = observations.map({$0 as? VNRectangleObservation})
         
-        
-        DispatchQueue.main.async() {
-            self.imageView.layer.sublayers?.removeSubrange(1...)
-            for region in result {
-                guard let rg = region else {
-                    continue
+        if detectRectangle.getState(){
+            DispatchQueue.main.async() {
+                self.imageView.layer.sublayers?.removeSubrange(1...)
+                for region in result {
+                    guard let rg = region else {
+                        continue
+                    }
+                    self.highlightObject(box: rg)
                 }
-                self.highlightObject(box: rg)
             }
+        } else {
+            DispatchQueue.main.async() {
+                self.imageView.layer.sublayers?.removeSubrange(1...)
+            }
+            
         }
-        
     }
     
     private func highlightObject(box: VNRectangleObservation) {
         
         let points = [box.bottomLeft, box.topLeft, box.topRight, box.bottomRight]
         let convertedPoints = points.map { self.convertFromCamera($0) }
-        
+        //print("\(imageView.layer.sublayers?.endIndex)")
         self.rectangleLayer = self.drawBoundingBox(convertedPoints, color: #colorLiteral(red: 0.3328347607, green: 0.236689759, blue: 1, alpha: 1))
         imageView.layer.addSublayer(self.rectangleLayer!)
+        //print("\(imageView.layer.sublayers?.endIndex)")
     }
     
     private func convertFromCamera(_ point: CGPoint) -> CGPoint {
@@ -230,7 +247,11 @@ extension ScannerViewController: AVCaptureVideoDataOutputSampleBufferDelegate, A
         if let imageData = photo.fileDataRepresentation(){
             print(imageData)
             photoImage = UIImage(data: imageData)
+            arrayOfPhotoInSession.append(photoImage!)
+            photoCollection.backgroundColor = UIColor.clear
             photoCollection.image = self.photoImage
+            countPhotoInSessionLabel.text = "\(arrayOfPhotoInSession.count)"
+
         }
     }
     
@@ -263,6 +284,18 @@ extension ScannerViewController: AVCaptureVideoDataOutputSampleBufferDelegate, A
     
     
     
+}
+
+extension ScannerViewController: UICircularProgressRingDelegate{
+    
+    func didUpdateProgressValue(to newValue: CGFloat) {
+        circular.setProgress(value: 0, animationDuration: 2.0) {
+            print("Done animating!")
+        }
+    }
+    func finishedUpdatingProgress(forRing ring: UICircularProgressRingView) {
+        print("0")
+    }
 }
 
 
