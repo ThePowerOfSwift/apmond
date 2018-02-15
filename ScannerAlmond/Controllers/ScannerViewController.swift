@@ -9,7 +9,6 @@
 import UIKit
 import AVFoundation
 import Vision
-import UICircularProgressRing
 
 class ScannerViewController: UIViewController {
     
@@ -24,9 +23,6 @@ class ScannerViewController: UIViewController {
     @IBOutlet weak var autoCaptureTextOutlet: UIButton!
     
     
-    @IBOutlet weak var circular: UICircularProgressRingView!
-    
-    
     var session = AVCaptureSession()
     var requests = [VNRequest]()
     var photoOutput: AVCapturePhotoOutput?
@@ -34,11 +30,8 @@ class ScannerViewController: UIViewController {
     var stateFlash = Flash()
     var detectRectangle = DetectRectangle()
     
-    
-    var countPhotoInSession: Int = 0
-    
     var photoImage: UIImage?
-    var arrayOfPhotoInSession = [UIImage] ()
+    var arrayOfPhotoInMemory = [UIImage] ()
     
     private var rectangleLayer: CAShapeLayer?
 
@@ -51,7 +44,7 @@ class ScannerViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-
+        countPhotoInSessionLabel.text = "\(arrayOfPhotoInMemory.count)"
     }
     override func viewDidAppear(_ animated: Bool) {
 
@@ -72,10 +65,6 @@ class ScannerViewController: UIViewController {
         var state = stateFlash.getFlashState()
         settings.flashMode = state
         photoOutput?.capturePhoto(with: settings, delegate: self)
-        countPhotoInSession = countPhotoInSession + 1
-        circular.setProgress(value: 100, animationDuration: 2.0) {
-            print("Done animating!")
-        }
     }
     
     
@@ -184,10 +173,8 @@ extension ScannerViewController: AVCaptureVideoDataOutputSampleBufferDelegate, A
         
         let points = [box.bottomLeft, box.topLeft, box.topRight, box.bottomRight]
         let convertedPoints = points.map { self.convertFromCamera($0) }
-        //print("\(imageView.layer.sublayers?.endIndex)")
         self.rectangleLayer = self.drawBoundingBox(convertedPoints, color: #colorLiteral(red: 0.3328347607, green: 0.236689759, blue: 1, alpha: 1))
         imageView.layer.addSublayer(self.rectangleLayer!)
-        //print("\(imageView.layer.sublayers?.endIndex)")
     }
     
     private func convertFromCamera(_ point: CGPoint) -> CGPoint {
@@ -247,10 +234,10 @@ extension ScannerViewController: AVCaptureVideoDataOutputSampleBufferDelegate, A
         if let imageData = photo.fileDataRepresentation(){
             print(imageData)
             photoImage = UIImage(data: imageData)
-            arrayOfPhotoInSession.append(photoImage!)
+            arrayOfPhotoInMemory.append(photoImage!)
             photoCollection.backgroundColor = UIColor.clear
             photoCollection.image = self.photoImage
-            countPhotoInSessionLabel.text = "\(arrayOfPhotoInSession.count)"
+            countPhotoInSessionLabel.text = "\(arrayOfPhotoInMemory.count)"
 
         }
     }
@@ -286,17 +273,7 @@ extension ScannerViewController: AVCaptureVideoDataOutputSampleBufferDelegate, A
     
 }
 
-extension ScannerViewController: UICircularProgressRingDelegate{
-    
-    func didUpdateProgressValue(to newValue: CGFloat) {
-        circular.setProgress(value: 0, animationDuration: 2.0) {
-            print("Done animating!")
-        }
-    }
-    func finishedUpdatingProgress(forRing ring: UICircularProgressRingView) {
-        print("0")
-    }
-}
+
 
 
 

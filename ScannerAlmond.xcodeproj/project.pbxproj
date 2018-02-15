@@ -15,6 +15,9 @@
 		4BF3937B2032CD63004CE76A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BF3937A2032CD63004CE76A /* Assets.xcassets */; };
 		4BF3937E2032CD63004CE76A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BF3937C2032CD63004CE76A /* LaunchScreen.storyboard */; };
 		4BF393872032CD9E004CE76A /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF393862032CD9E004CE76A /* ScannerViewController.swift */; };
+		4BF669952035D9FC002824C1 /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BF669942035D9FC002824C1 /* Slide.xib */; };
+		4BF669992035DBAE002824C1 /* MainFunctionalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF669982035DBAE002824C1 /* MainFunctionalViewController.swift */; };
+		4BF6699B2035DCDE002824C1 /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF6699A2035DCDE002824C1 /* Slide.swift */; };
 		93BC8600FC765B7AD012B2C9 /* Pods_ScannerAlmond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D9F3C2B1F5BD1D05FA9A25 /* Pods_ScannerAlmond.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +33,9 @@
 		4BF3937D2032CD63004CE76A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BF3937F2032CD63004CE76A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BF393862032CD9E004CE76A /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		4BF669942035D9FC002824C1 /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
+		4BF669982035DBAE002824C1 /* MainFunctionalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFunctionalViewController.swift; sourceTree = "<group>"; };
+		4BF6699A2035DCDE002824C1 /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
 		54D9F3C2B1F5BD1D05FA9A25 /* Pods_ScannerAlmond.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScannerAlmond.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96B04BF8D8889491975CFFAA /* Pods-ScannerAlmond.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScannerAlmond.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScannerAlmond/Pods-ScannerAlmond.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +91,7 @@
 		4BF3936F2032CD63004CE76A /* ScannerAlmond */ = {
 			isa = PBXGroup;
 			children = (
+				4BF669932035D9E3002824C1 /* View */,
 				4B5FAD5420346D670094863A /* Camera */,
 				4BF393852032CD72004CE76A /* Controllers */,
 				4BF393702032CD63004CE76A /* AppDelegate.swift */,
@@ -101,8 +108,18 @@
 			isa = PBXGroup;
 			children = (
 				4BF393862032CD9E004CE76A /* ScannerViewController.swift */,
+				4BF669982035DBAE002824C1 /* MainFunctionalViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4BF669932035D9E3002824C1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4BF669942035D9FC002824C1 /* Slide.xib */,
+				4BF6699A2035DCDE002824C1 /* Slide.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		50BA6683C2BFE18B65ED7172 /* Frameworks */ = {
@@ -175,6 +192,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BF669952035D9FC002824C1 /* Slide.xib in Resources */,
 				4BF3937E2032CD63004CE76A /* LaunchScreen.storyboard in Resources */,
 				4BF3937B2032CD63004CE76A /* Assets.xcassets in Resources */,
 				4BF393762032CD63004CE76A /* Main.storyboard in Resources */,
@@ -243,8 +261,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BCD8AA120357FBD005BD161 /* DetectRectangle.swift in Sources */,
+				4BF669992035DBAE002824C1 /* MainFunctionalViewController.swift in Sources */,
 				4B5FAD5820346D930094863A /* Flash.swift in Sources */,
 				4BF393792032CD63004CE76A /* ScannerAlmond.xcdatamodeld in Sources */,
+				4BF6699B2035DCDE002824C1 /* Slide.swift in Sources */,
 				4BF393872032CD9E004CE76A /* ScannerViewController.swift in Sources */,
 				4BF393712032CD63004CE76A /* AppDelegate.swift in Sources */,
 			);
